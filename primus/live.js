@@ -6,9 +6,9 @@ module.exports.go = (server) => {
   primus.on("connection", (spark) => {
     console.log("connected 🔥");
     spark.on("data", (data) => {
-      if (data.action === "newStat") {
-        console.log("data received: ", data.data);
-        primus.write({ action: "newStat", data: data.status.data });
+      if (data.action === "newResult") {
+        console.log("data received: ", data);
+        primus.write({ action: "newResult", data: data });
       }
     });
   });
